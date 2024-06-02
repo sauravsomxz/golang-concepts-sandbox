@@ -39,13 +39,16 @@ func main() {
 	var expenses float64
 	var taxRate float64
 
-	fmt.Print("Enter your Revenue: ")
+	// fmt.Print("Enter your Revenue: ")
+	outputText("Enter your Revenue: ")
 	fmt.Scan(&revenue)
 
-	fmt.Print("Enter your Expenses: ")
+	// fmt.Print("Enter your Expenses: ")
+	outputText("Enter your Expenses: ")
 	fmt.Scan(&expenses)
 
-	fmt.Print("Enter your Tax Rate (as a percentage): ")
+	// fmt.Print("Enter your Tax Rate (as a percentage): ")
+	outputText("Enter your Tax Rate (as a percentage): ")
 	fmt.Scan(&taxRate)
 
 	// Calculate profit before tax
@@ -66,4 +69,8 @@ func main() {
 
 	// Print expenses
 	fmt.Printf("Expenses: %.2f\n", expenses)
+}
+
+func outputText(text string) {
+	fmt.Print(text)
 }
