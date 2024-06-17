@@ -51,4 +51,15 @@ func main() {
 	} else {
 		fmt.Println("Thank you for using our bank.")
 	}
+
+	//// Looping in GO
+	for i := 0; i < 2; i++ {
+		fmt.Println("GO LOOP PRINTING")
+	}
+
+	//// Infinte Loop
+	for {
+		fmt.Println("HI!")
+	}
+
 }
