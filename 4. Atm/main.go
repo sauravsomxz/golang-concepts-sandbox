@@ -23,17 +23,31 @@ func main() {
 		var depositAmount float64
 		fmt.Scan(&depositAmount)
 
-		accountBalance = accountBalance + int(depositAmount)
+		if depositAmount > 0 {
+			accountBalance = accountBalance + int(depositAmount)
 
-		fmt.Println("Updated Account Balance: ", accountBalance)
+			fmt.Println("Updated Account Balance: ", accountBalance)
+		} else {
+			fmt.Println("Deposit Amount cannot be negative.")
+		}
+
 	} else if choice == 3 {
 		fmt.Print("Your Withdrawl: ")
 		var withdrawAmount float64
 		fmt.Scan(&withdrawAmount)
 
-		accountBalance = accountBalance - int(withdrawAmount)
+		if withdrawAmount > 0 && withdrawAmount < float64(accountBalance) {
+			accountBalance = accountBalance - int(withdrawAmount)
 
-		fmt.Println("Updated Account Balance: ", accountBalance)
+			fmt.Println("Updated Account Balance: ", accountBalance)
+		} else {
+			if withdrawAmount <= 0 {
+				fmt.Println("Invalid Amount. Withdraw Amount is invalid")
+			} else {
+				fmt.Println("Withdrawl Amount is greater than available amount")
+			}
+		}
+
 	} else {
 		fmt.Println("Thank you for using our bank.")
 	}
