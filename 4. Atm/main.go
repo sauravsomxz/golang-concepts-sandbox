@@ -111,11 +111,16 @@ func writeBalanceToFile(balance float64) {
 }
 
 func readBalanceFromFile() float64 {
-	data, _ := os.ReadFile(balanceText)
+	data, err := os.ReadFile(balanceText)
 
-	balanceText := string(data)
+	if err != nil {
 
-	balance, _ := strconv.ParseFloat(balanceText, 64)
-	return balance
+		balanceText := string(data)
 
+		balance, _ := strconv.ParseFloat(balanceText, 64)
+		return balance
+	} else {
+		fmt.Println("Error: ", err)
+		return 0.0
+	}
 }
