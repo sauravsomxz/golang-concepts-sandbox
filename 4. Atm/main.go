@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+)
 
 func main() {
 
@@ -28,6 +31,7 @@ func main() {
 			accountBalance = accountBalance + int(depositAmount)
 
 			fmt.Println("Updated Account Balance: ", accountBalance)
+			writeBalanceToFile(float64(accountBalance))
 		} else {
 			fmt.Println("Deposit Amount cannot be negative.")
 		}
@@ -40,6 +44,7 @@ func main() {
 			accountBalance = accountBalance - int(withdrawAmount)
 
 			fmt.Println("Updated Account Balance: ", accountBalance)
+			writeBalanceToFile(float64(accountBalance))
 		} else {
 			if withdrawAmount <= 0 {
 				fmt.Println("Invalid Amount. Withdraw Amount is invalid")
@@ -96,4 +101,9 @@ func main() {
 	// for {
 	// 	fmt.Println("HI!")
 	// }
+}
+
+func writeBalanceToFile(balance float64) {
+	balanceText := fmt.Sprint(balance)
+	os.WriteFile("balanceOfUser.txt", []byte(balanceText), 0644)
 }
