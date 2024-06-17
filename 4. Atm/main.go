@@ -16,9 +16,10 @@ func main() {
 	fmt.Print("Choose Option: ")
 	fmt.Scan(&choice)
 
-	if choice == 1 {
+	switch choice {
+	case 1:
 		fmt.Println("Account Balance: ", accountBalance)
-	} else if choice == 2 {
+	case 2:
 		fmt.Print("Your Deposit: ")
 		var depositAmount float64
 		fmt.Scan(&depositAmount)
@@ -30,8 +31,7 @@ func main() {
 		} else {
 			fmt.Println("Deposit Amount cannot be negative.")
 		}
-
-	} else if choice == 3 {
+	case 3:
 		fmt.Print("Your Withdrawl: ")
 		var withdrawAmount float64
 		fmt.Scan(&withdrawAmount)
@@ -47,10 +47,45 @@ func main() {
 				fmt.Println("Withdrawl Amount is greater than available amount")
 			}
 		}
-
-	} else {
+	default:
 		fmt.Println("Thank you for using our bank.")
 	}
+
+	// if choice == 1 {
+	// 	fmt.Println("Account Balance: ", accountBalance)
+	// } else if choice == 2 {
+	// 	fmt.Print("Your Deposit: ")
+	// 	var depositAmount float64
+	// 	fmt.Scan(&depositAmount)
+
+	// 	if depositAmount > 0 {
+	// 		accountBalance = accountBalance + int(depositAmount)
+
+	// 		fmt.Println("Updated Account Balance: ", accountBalance)
+	// 	} else {
+	// 		fmt.Println("Deposit Amount cannot be negative.")
+	// 	}
+
+	// } else if choice == 3 {
+	// 	fmt.Print("Your Withdrawl: ")
+	// 	var withdrawAmount float64
+	// 	fmt.Scan(&withdrawAmount)
+
+	// 	if withdrawAmount > 0 && withdrawAmount < float64(accountBalance) {
+	// 		accountBalance = accountBalance - int(withdrawAmount)
+
+	// 		fmt.Println("Updated Account Balance: ", accountBalance)
+	// 	} else {
+	// 		if withdrawAmount <= 0 {
+	// 			fmt.Println("Invalid Amount. Withdraw Amount is invalid")
+	// 		} else {
+	// 			fmt.Println("Withdrawl Amount is greater than available amount")
+	// 		}
+	// 	}
+
+	// } else {
+	// 	fmt.Println("Thank you for using our bank.")
+	// }
 
 	//// Looping in GO
 	for i := 0; i < 2; i++ {
@@ -58,8 +93,7 @@ func main() {
 	}
 
 	//// Infinte Loop
-	for {
-		fmt.Println("HI!")
-	}
-
+	// for {
+	// 	fmt.Println("HI!")
+	// }
 }
